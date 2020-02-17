@@ -1,5 +1,6 @@
 import React from 'react';
 import ConfirmationQuestions from './ConfirmationQuestions';
+import NewTicketForm from './NewTicketForm';
 
 class NewTicketControl extends React.Component {
 
@@ -8,20 +9,19 @@ class NewTicketControl extends React.Component {
     this.state = {
       formVisableOnPage: false
     };
-    // this.handleClick = this.handleClick.bind(this);
+   this.handleTroubleshootingConfirmation = this.handleTroubleshootingConfirmation.bind(this);
   }
 
-  // handleClick(){
-  //   this.setState({formVisableOnPage: true});
-  //   console.log('formVisableOnPage is currently set to:' + this.state.formVisableOnPage);
-  // }
+handleTroubleshootingConfirmation(){
+  this.setState({formVisableOnPage: true});
+}
 
   render(){
     let currentlyVisableContent = null;
     if (this.state.formVisableOnPage){
       currentlyVisableContent = <NewTicketForm />;
     } else {
-      currentlyVisableContent = <ConfirmationQuestions />;
+      currentlyVisableContent = <ConfirmationQuestions onTroubleShootingConfirmation={this.handleTroubleshootingConfirmation} />;
     }
     return (
       <div>
