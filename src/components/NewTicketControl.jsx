@@ -1,6 +1,7 @@
 import React from 'react';
 import ConfirmationQuestions from './ConfirmationQuestions';
 import NewTicketForm from './NewTicketForm';
+import PropTypes from 'prop-types';
 
 class NewTicketControl extends React.Component {
 
@@ -19,7 +20,7 @@ handleTroubleshootingConfirmation(){
   render(){
     let currentlyVisableContent = null;
     if (this.state.formVisableOnPage){
-      currentlyVisableContent = <NewTicketForm />;
+      currentlyVisableContent = <NewTicketForm onNewTicketCreation={this.props.onNewTicketCreation}/>;
     } else {
       currentlyVisableContent = <ConfirmationQuestions onTroubleShootingConfirmation={this.handleTroubleshootingConfirmation} />;
     }
@@ -30,5 +31,9 @@ handleTroubleshootingConfirmation(){
     );
   }
 }
+
+NewTicketControl.propTypes = {
+  onNewTicketCreation: PropTypes.func
+};
 
 export default NewTicketControl;
