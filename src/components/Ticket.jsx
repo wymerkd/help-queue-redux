@@ -11,16 +11,13 @@ function Ticket(props){
           }
         `}</style>
       <h3>{props.location} - {props.names}</h3>
-      <h4>{displayTimeOpen(props.timeOpen)} ago</h4>
+      <h4>{props.formattedWaitTime}</h4>
       <p><em>{props.issue}</em></p>
       <hr/>
     </div>
   );
 }
 
-function displayTimeOpen(timeOpen) {
-  return timeOpen.from(new Moment(), true);
-}
 
 Ticket.propTypes = {
   names: PropTypes.string.isRequired,
