@@ -4,6 +4,7 @@ import TicketList from "./TicketList";
 import { Switch, Route } from 'react-router-dom';
 import NewTicketControl from './NewTicketControl';
 import Moment from 'moment';
+import Admin from './Admin';
 
 class App extends React.Component {
 
